@@ -1,0 +1,280 @@
+:root {
+    --ginger:       #E8792B;
+    --ginger-dark:  #B85C1A;
+    --gold:         #F4A93C;
+    --gold-light:   #FFD79A;
+    --choco:        #4A2E1C;
+    --beige:        #FBF3E6;
+    --milk:         #FFFDF9;
+    --mint:         #7FB069;
+    --terra:        #C1440E;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: var(--choco);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+
+    background-color: var(--beige);
+    background-image:
+        radial-gradient(circle at 8% 12%, #ffe4bb 0%, transparent 35%),
+        radial-gradient(circle at 92% 88%, #ffdcb0 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, #fff0d6 0%, transparent 60%),
+        url("../images/paw.svg"),
+        url("../images/paw.svg");
+    background-size:
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        55px 55px,
+        55px 55px;
+    background-position:
+        0 0,
+        100% 100%,
+        50% 50%,
+        0 0,
+        27px 27px;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat;
+    background-attachment: fixed;
+}
+
+header, nav, main, footer {
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--ginger) 50%, var(--ginger-dark) 100%);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(184, 92, 26, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.6em;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 6px rgba(74, 46, 28, 0.4);
+}
+
+.subtitle {
+    font-style: italic;
+    color: #fff5e0;
+    margin: 8px 0 0;
+    font-size: 1.1em;
+}
+
+nav {
+    background-color: var(--gold-light);
+    padding: 14px;
+    text-align: center;
+    border-bottom: 3px solid var(--ginger);
+}
+
+nav a {
+    color: var(--choco);
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 4px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: var(--ginger);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(232, 121, 43, 0.4);
+}
+
+nav a.active {
+    background-color: var(--ginger-dark);
+    color: #fff;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: var(--milk);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 20px rgba(184, 92, 26, 0.12);
+    border-left: 6px solid var(--ginger);
+}
+
+#about {
+    background: linear-gradient(160deg, var(--milk) 60%, #fff2dd 100%);
+    border-left-color: var(--gold);
+}
+
+h2 {
+    color: var(--ginger-dark);
+    border-bottom: 2px dashed var(--gold-light);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.cat-photo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 320px;
+    border-radius: 50%;
+    border: 6px solid var(--gold);
+    box-shadow: 0 8px 25px rgba(232, 121, 43, 0.35);
+}
+
+.crime-photo {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    border-radius: 14px;
+    border: 4px solid var(--gold-light);
+    box-shadow: 0 6px 20px rgba(184, 92, 26, 0.25);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: var(--milk);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(184, 92, 26, 0.15);
+}
+
+table th,
+table td {
+    border: 1px solid var(--gold-light);
+    padding: 14px 16px;
+}
+
+table th {
+    background: linear-gradient(135deg, var(--ginger) 0%, var(--ginger-dark) 100%);
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #FFF8EC;
+}
+
+table tbody tr:hover {
+    background-color: #FFEFD3;
+    transition: background-color 0.3s;
+}
+
+.place {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: var(--ginger);
+}
+
+.crime-name {
+    text-align: left;
+    font-weight: bold;
+}
+
+.damage {
+    text-align: right;
+    font-style: italic;
+    color: var(--terra);
+}
+
+.badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--ginger), var(--ginger-dark));
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.6em;
+    vertical-align: middle;
+    margin-right: 10px;
+    box-shadow: 0 3px 8px rgba(232, 121, 43, 0.4);
+}
+
+.gold-badge {
+    background: linear-gradient(135deg, #FFC93C, #D4A017);
+    box-shadow: 0 3px 10px rgba(212, 160, 23, 0.5);
+}
+
+.highlight {
+    background: linear-gradient(180deg, transparent 60%, var(--gold-light) 60%);
+    padding: 2px 6px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.crime-page {
+    background: linear-gradient(160deg, var(--milk) 0%, #FFF3E0 100%);
+    border-left: 8px solid var(--ginger);
+}
+
+.crime-page.gold {
+    background: linear-gradient(160deg, #FFFDF5 0%, #FFEDC9 100%);
+    border-left: 8px solid var(--gold);
+    border-right: 8px solid var(--gold);
+}
+
+.crime-page ul {
+    padding-left: 25px;
+}
+
+.crime-page ul li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.crime-page ul li::marker {
+    color: var(--ginger);
+    font-size: 1.2em;
+}
+
+.final-note {
+    font-style: italic;
+    color: var(--ginger-dark);
+    border-top: 2px dashed var(--gold-light);
+    padding-top: 15px;
+    margin-top: 25px;
+    text-align: center;
+    font-size: 1.05em;
+}
+
+.crime-page.gold h2 {
+    color: var(--terra);
+    border-bottom-color: var(--gold);
+}
+
+.crime-page.gold .badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+footer {
+    background: linear-gradient(135deg, var(--choco) 0%, #2E1C10 100%);
+    color: var(--gold-light);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    border-top: 4px solid var(--ginger);
+}
+
+footer p {
+    margin: 0;
+    letter-spacing: 0.5px;
+}
