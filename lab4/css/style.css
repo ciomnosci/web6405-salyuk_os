@@ -1,0 +1,227 @@
+/* Все цвета объявлены в одном месте. */
+:root {
+    --ginger: #e8792b;
+    --ginger-dark: #b85c1a;
+    --gold: #f4a93c;
+    --gold-light: #ffd79a;
+    --choco: #4a2e1c;
+    --beige: #fbf3e6;
+    --milk: #fffdf9;
+    --mint: #7fb069;
+    --terra: #c1440e;
+    --white: #ffffff;
+    --subtitle: #fff5e0;
+    --bg-spot-1: #ffe4bb;
+    --bg-spot-2: #ffdcb0;
+    --bg-spot-3: #fff0d6;
+    --about-end: #fff2dd;
+    --row-even: #fff8ec;
+    --row-hover: #ffefd3;
+    --crime-end: #fff3e0;
+    --gold-top: #ffc93c;
+    --gold-bottom: #d4a017;
+    --gold-page-top: #fffdf5;
+    --gold-page-bottom: #ffedc9;
+    --footer-bottom: #2e1c10;
+    --input-border: #dfbd95;
+    --clear: transparent;
+    --shadow-header: rgba(184, 92, 26, 0.30);
+    --shadow-title: rgba(74, 46, 28, 0.40);
+    --shadow-strong: rgba(232, 121, 43, 0.35);
+    --shadow-medium: rgba(184, 92, 26, 0.25);
+    --shadow-light: rgba(184, 92, 26, 0.12);
+    --shadow-badge: rgba(232, 121, 43, 0.40);
+    --shadow-gold: rgba(212, 160, 23, 0.50);
+}
+
+* { box-sizing: border-box; }
+body {
+    font-family: Georgia, serif;
+    color: var(--choco);
+    margin: 0;
+    line-height: 1.6;
+    background-color: var(--beige);
+    background-image:
+        radial-gradient(circle at 8% 12%, var(--bg-spot-1) 0%, var(--clear) 35%),
+        radial-gradient(circle at 92% 88%, var(--bg-spot-2) 0%, var(--clear) 40%),
+        radial-gradient(circle at 50% 50%, var(--bg-spot-3) 0%, var(--clear) 60%),
+        url("../images/paw.svg"), url("../images/paw.svg");
+    background-size: 100% 100%, 100% 100%, 100% 100%, 55px 55px, 55px 55px;
+    background-position: 0 0, 100% 100%, 50% 50%, 0 0, 27px 27px;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat;
+    background-attachment: fixed;
+}
+header, nav, main, footer { position: relative; z-index: 1; }
+header {
+    background: linear-gradient(135deg, var(--gold), var(--ginger) 50%, var(--ginger-dark));
+    color: var(--white);
+    padding: 34px 16px;
+    text-align: center;
+    box-shadow: 0 4px 15px var(--shadow-header);
+}
+header h1 { margin: 0; font-size: 2.6em; text-shadow: 2px 2px 6px var(--shadow-title); }
+.subtitle { font-style: italic; color: var(--subtitle); margin: 7px 0 0; }
+
+/* Flexbox: навигация. На странице crime3 — также фото + текст. */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: var(--gold-light);
+    padding: 12px;
+    border-bottom: 3px solid var(--ginger);
+}
+nav a {
+    color: var(--choco);
+    text-decoration: none;
+    padding: 9px 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color .25s, color .25s, transform .25s;
+}
+nav a:hover { background: var(--ginger); color: var(--white); transform: translateY(-2px); }
+nav a.active { background: var(--ginger-dark); color: var(--white); }
+
+main { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+section {
+    background: var(--milk);
+    border-left: 6px solid var(--ginger);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 20px var(--shadow-light);
+}
+h2 { color: var(--ginger-dark); border-bottom: 2px dashed var(--gold-light); margin-top: 0; padding-bottom: 10px; }
+#about { background: linear-gradient(160deg, var(--milk) 60%, var(--about-end)); border-left-color: var(--gold); }
+
+/* Grid: две колонки главной страницы, на телефонах — одна. */
+.home-grid {
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    gap: 22px;
+    align-items: start;
+}
+.home-grid section { min-width: 0; }
+.cat-photo {
+    display: block;
+    width: min(100%, 300px);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 6px solid var(--gold);
+    box-shadow: 0 8px 25px var(--shadow-strong);
+    animation: float-cat 3.5s ease-in-out infinite;
+}
+/* CSS-анимация: Чепа немного покачивается в воздухе. */
+@keyframes float-cat {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-9px) rotate(1deg); }
+}
+.crime-photo {
+    display: block;
+    width: min(100%, 550px);
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: 14px;
+    border: 4px solid var(--gold-light);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+}
+.crime-flex { display: flex; align-items: flex-start; gap: 26px; }
+.crime-flex .crime-photo { flex: 0 0 44%; max-width: 44%; margin: 0; }
+.crime-description { flex: 1; min-width: 0; }
+.crime-description p:first-child { margin-top: 0; }
+
+/* Таблица рейтинга из лабораторной №2. */
+table { width: 100%; border-collapse: collapse; margin-top: 15px; background: var(--milk); }
+th, td { border: 1px solid var(--gold-light); padding: 12px 10px; }
+th { background: var(--ginger); color: var(--white); text-align: center; }
+tbody tr:nth-child(even) { background: var(--row-even); }
+tbody tr:hover { background: var(--row-hover); }
+.place { color: var(--ginger); text-align: center; font-size: 1.2em; font-weight: bold; }
+.crime-name { font-weight: bold; }
+.damage { color: var(--terra); text-align: right; font-style: italic; }
+
+.badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--ginger), var(--ginger-dark));
+    color: var(--white);
+    border-radius: 20px;
+    padding: 6px 13px;
+    margin-right: 10px;
+    font-size: .65em;
+    vertical-align: middle;
+    box-shadow: 0 3px 8px var(--shadow-badge);
+}
+.gold-badge { background: linear-gradient(135deg, var(--gold-top), var(--gold-bottom)); box-shadow: 0 3px 10px var(--shadow-gold); }
+.highlight { background: linear-gradient(180deg, var(--clear) 60%, var(--gold-light) 60%); padding: 2px 6px; font-weight: bold; }
+.crime-page { background: linear-gradient(160deg, var(--milk), var(--crime-end)); border-left: 8px solid var(--ginger); }
+.crime-page.gold { background: linear-gradient(160deg, var(--gold-page-top), var(--gold-page-bottom)); border: 0; border-left: 8px solid var(--gold); border-right: 8px solid var(--gold); }
+.crime-page.gold h2 { color: var(--terra); border-bottom-color: var(--gold); }
+.crime-page.gold .badge { animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+.crime-page li { margin-bottom: 9px; }
+.crime-page li::marker { color: var(--ginger); }
+
+/* Новая страница с формой. */
+.form-section { max-width: 650px; margin-left: auto; margin-right: auto; }
+form { display: flex; flex-direction: column; gap: 9px; }
+form label { font-weight: bold; }
+form input:not([type="checkbox"]), form select, form textarea {
+    width: 100%;
+    font: inherit;
+    padding: 10px 12px;
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--choco);
+    margin-bottom: 8px;
+}
+form input:focus-visible, form select:focus-visible, form textarea:focus-visible, button:focus-visible {
+    outline: 2px solid var(--ginger);
+    outline-offset: 2px;
+}
+.check-label { display: flex; gap: 9px; align-items: flex-start; font-size: .92em; }
+.check-label input { margin-top: 7px; accent-color: var(--ginger-dark); }
+form button {
+    font: bold 1em Georgia, serif;
+    color: var(--white);
+    background: var(--ginger-dark);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+form button:hover { background: var(--ginger); }
+form button:disabled { opacity: .65; cursor: wait; }
+.form-result { min-height: 1.6em; margin: 0; font-weight: bold; }
+.form-result.success { color: var(--mint); }
+.form-result.error { color: var(--terra); }
+
+footer {
+    background: linear-gradient(135deg, var(--choco), var(--footer-bottom));
+    color: var(--gold-light);
+    text-align: center;
+    padding: 20px;
+    margin-top: 45px;
+    border-top: 4px solid var(--ginger);
+}
+footer p { margin: 0; }
+@media (max-width: 850px) {
+    .home-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 650px) {
+    header h1 { font-size: 2em; }
+    main { padding: 0 12px; }
+    section { padding: 18px; }
+    nav a { padding: 8px 11px; }
+    .crime-flex { flex-direction: column; }
+    .crime-flex .crime-photo { max-width: 100%; width: 100%; }
+    th, td { padding: 8px 5px; font-size: .86em; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .cat-photo, .crime-page.gold .badge { animation: none; }
+}
